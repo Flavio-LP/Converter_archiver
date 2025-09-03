@@ -1,0 +1,6 @@
+
+html{
+    background: linear-gradient(180deg,rgb(76, 128, 196),white 80% ) no-repeat;
+    display: flex;
+    height:100%;
+}
