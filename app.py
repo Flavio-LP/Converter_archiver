@@ -9,7 +9,6 @@ def home():
 
 if __name__ == '__main__':
     server = Server(app.wsgi_app)
-    server.watch('static/*.css')
-    server.watch('templates/*.html')
-    server.watch('app.py')
-    server.serve(port=5500)
+    server.watch('templates/')
+    server.watch('static/')
+    server.serve(port=5500, debug=True)
