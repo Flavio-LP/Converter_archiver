@@ -34,6 +34,7 @@ main{
     width: 30vw;
     background-color: white;
     border-radius: 5%;
+    flex-direction: column;
     
 }
 
@@ -45,6 +46,7 @@ main{
     border-style: solid;
     border-color: black;
     border-radius: 8px;
+    margin-bottom: 5%;
 }
 
 .select-file-input {
