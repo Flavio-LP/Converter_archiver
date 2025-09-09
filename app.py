@@ -58,3 +58,4 @@ if __name__ == '__main__':
     server.watch('templates/')
     server.watch('static/')
     server.serve(port=5500, debug=True)
+    

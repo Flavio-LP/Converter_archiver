@@ -1,7 +1,22 @@
 
+:root{
+    --color-1: #1D74E6; /* Background*/
+    --color-2: white; /* Backround 2 */ 
+    --color-3: black; /*  Text-color  */
+    /*
+    --color-3:  ; Border
+    --color-4:  ; Text-color   
+    --color-5:  ; houyver-primary
+    --color-6:  ; houver-secoundary
+    --color-7:  ;
+    --color-:8  ;    
+    */
+
+}
+
 
 html{
-    background: linear-gradient(160deg,#1D74E6,white 65% ) no-repeat;
+    background: linear-gradient(160deg,var(--color-1),var(--color-2) 65% ) no-repeat;
     display: flex;
     height:100%;
     justify-content: center;
@@ -32,7 +47,7 @@ main{
     align-items: center;
     height: 20vw;
     width: 30vw;
-    background-color: white;
+    background-color: var(--color-2);
     border-radius: 5%;
     flex-direction: column;
     
@@ -44,7 +59,7 @@ main{
     align-items: center;
     flex-direction: row;
     border-style: solid;
-    border-color: black;
+    border-color: var(--color-3);
     border-radius: 8px;
     margin-bottom: 5%;
 }
@@ -56,14 +71,14 @@ main{
   gap: 8px;
   padding: 10px 14px;
   border-radius: 8px;
-  background: #f3f4f6;
-  color: #111827;
+  background: var(--color-2);
+  color: var(--color-3);
   cursor: pointer;
   user-select: none;
 }
 
 .select-file-input:hover {
-  background: #E6F0FE;
+  background: var(--color-2);
 }
 
 .css-svg_input{
