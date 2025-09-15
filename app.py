@@ -8,12 +8,16 @@ app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'pdf', 'txt'}
+app.config['OUTPUT_FOLDER'] = 'outputs'
+ALLOWED_EXTENSIONS = {'xml'}
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+os.makedirs(app.config['OUTPUT_FOLDER'], exist_ok=True)
 
 def allowed_file(filename: str) -> bool:
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+archive = []
 
 @app.route('/')
 def home():
@@ -43,6 +47,8 @@ def upload_multi():
     if not saved:
         return jsonify(error='Nenhum arquivo válido para salvar'), 400
 
+    archive.append({unique_name, len(saved)})
+    convert_archive()
     return jsonify(ok=True, saved=saved, count=len(saved))
 
 @app.route('/uploads/<path:filename>')
@@ -52,6 +58,10 @@ def uploaded_file(filename):
 @app.errorhandler(413)
 def too_large(e):
     return jsonify(error='Arquivo muito grande (413)'), 413
+
+def convert_archive():
+    print("convertido")
+    print(archive[0])
 
 if __name__ == '__main__':
     server = Server(app.wsgi_app)
